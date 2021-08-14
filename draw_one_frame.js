@@ -1,28 +1,25 @@
 function draw_one_frame(cur_frac) {
 
   angleMode(DEGREES);
-
-
-  background(234, 205, 178);
+  background(25);
   noStroke();
 
   // Colour Parameters
 
   let fill_col;
 
-
   // Sets Cube core colour
-  let colCubeTopR = 125;
-  let colCubeTopG = 175;
-  let colCubeTopB = 175;
+  let colCubeTopR = 150;
+  let colCubeTopG = 150;
+  let colCubeTopB = 150;
 
   let colCubeRightR = colCubeTopR + 25;
   let colCubeRightG = colCubeTopG + 25;
   let colCubeRightB = colCubeTopB + 25;
 
-  let colCubeLeftR = colCubeTopR - 50;
-  let colCubeLeftG = colCubeTopG - 50;
-  let colCubeLeftB = colCubeTopB - 50;
+  let colCubeLeftR = colCubeTopR - 75;
+  let colCubeLeftG = colCubeTopG - 75;
+  let colCubeLeftB = colCubeTopB - 75;
 
   let cubeedgeHighlightcolRightOuterR = colCubeRightR + 25;
   let cubeedgeHighlightcolRightOuterG = colCubeRightG + 25;
@@ -50,9 +47,9 @@ function draw_one_frame(cur_frac) {
   let cubeedgeHighlightcolRightOuter = color(cubeedgeHighlightcolRightOuterR, cubeedgeHighlightcolRightOuterG, cubeedgeHighlightcolRightOuterB);
 
 // Sets Ground core colour
-  let colTopR = 255;
-  let colTopG = 152;
-  let colTopB = 105;
+  let colTopR = 200;
+  let colTopG = 200;
+  let colTopB = 200;
 
   let colRightR = colTopR - 100;
   let colRightG = colTopG - 100;
@@ -62,9 +59,9 @@ function draw_one_frame(cur_frac) {
   let colRightGradG = colRightG - 25;
   let colRightGradB = colRightB - 25;
 
-  let dotcolRightR = colRightR + 15;
-  let dotcolRightG = colRightG + 15;
-  let dotcolRightB = colRightB + 15;
+  let dotcolRightR = colRightR + 25;
+  let dotcolRightG = colRightG + 25;
+  let dotcolRightB = colRightB + 25;
 
   let edgeHighlightcolRightInnerR = colRightR + 125;
   let edgeHighlightcolRightInnerG = colRightG + 125;
@@ -78,9 +75,9 @@ function draw_one_frame(cur_frac) {
   let colLeftG = colTopG - 150;
   let colLeftB = colTopB - 150;
 
-  let dotcolLeftR = colLeftR + 15;
-  let dotcolLeftG = colLeftG + 15;
-  let dotcolLeftB = colLeftB + 15;
+  let dotcolLeftR = colLeftR + 25;
+  let dotcolLeftG = colLeftG + 25;
+  let dotcolLeftB = colLeftB + 25;
 
   let colLeftGradR = colLeftR - 37.5;
   let colLeftGradG = colLeftG - 37.5;
@@ -126,8 +123,8 @@ function draw_one_frame(cur_frac) {
 
 
   // Grid Sizing
-  let gridGap = 2 * widthUnit;
-  let gridPadding = 2 * widthUnit;
+  let gridGap = 1 * widthUnit;
+  let gridPadding = 1 * widthUnit;
   let gridHeight = -175 * widthUnit;
   let gridMarginTop = 50 * widthUnit;
   let gridBorderSize = 20 * widthUnit;
@@ -135,7 +132,7 @@ function draw_one_frame(cur_frac) {
   let gridSize = width / 2 - 2 * gridMarginTop;
 
   // Cube Sizing
-  let cubeAmm = 25;
+  let cubeAmm = 15;
   let cubeSize = gridSize / cubeAmm;
   let cubeDepth = 100 * widthUnit;
 
@@ -147,10 +144,10 @@ function draw_one_frame(cur_frac) {
 
   // Stair Sizing and Position
   let stairSize = 2 * widthUnit;
-  let stairSideMargin = 175 * widthUnit;
+  let stairSideMargin = 150 * widthUnit;
   let stairAmm = 40;
   let stairMargin = 10 * widthUnit;
-  let stairRecessDepth = 100 * widthUnit;
+  let stairRecessDepth = 150 * widthUnit;
 
   let dotSize = .5 * widthUnit;
 
@@ -337,7 +334,7 @@ function draw_one_frame(cur_frac) {
 
   fill(dotcolLeft);
 
-  drawDotsLeft(width / 2 - 2 * gridMarginTop + 2 * gridPadding - stairSideMargin + stairMargin, height / 2 - height / 20, stairRecessDepth - stairMargin, height / 8);
+  drawDotsLeft(width / 2 - 2 * gridMarginTop + 2 * gridPadding - stairSideMargin + stairMargin, height / 2 - 40 * widthUnit, stairRecessDepth - stairMargin, height / 8);
 
 
   // Individual Stair Function
@@ -474,19 +471,6 @@ function draw_one_frame(cur_frac) {
       let yOff = random() * h;
       rect(x - xOff, y + yOff + (x + xOff) / 2, dotSize, dotSize);
     }
-  }
-
-
-  // note: you can draw optional things depending on "debugView"
-  if (debugView) {
-    // we'll draw our "keyframes"
-    noFill();
-    stroke(255, 0, 0);
-    strokeWeight(height / 100);
-    // here we "plug in" the values when cur_frac is 0
-    rect(-half_width, 0, rect_width, height);
-    rect(width - half_width, 0, rect_width, height);
-    rect(-width - half_width, 0, rect_width, height);
   }
 }
 
