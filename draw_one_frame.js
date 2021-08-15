@@ -1,99 +1,68 @@
 function draw_one_frame(cur_frac) {
 
   angleMode(DEGREES);
-  background(25);
+  background(217, 154, 159);
   noStroke();
 
   // Colour Parameters
 
   let fill_col;
+  let fillMult;
+
 
   // Sets Cube core colour
-  let colCubeTopR = 150;
-  let colCubeTopG = 150;
-  let colCubeTopB = 150;
-
-  let colCubeRightR = colCubeTopR + 25;
-  let colCubeRightG = colCubeTopG + 25;
-  let colCubeRightB = colCubeTopB + 25;
-
-  let colCubeLeftR = colCubeTopR - 75;
-  let colCubeLeftG = colCubeTopG - 75;
-  let colCubeLeftB = colCubeTopB - 75;
-
-  let cubeedgeHighlightcolRightOuterR = colCubeRightR + 25;
-  let cubeedgeHighlightcolRightOuterG = colCubeRightG + 25;
-  let cubeedgeHighlightcolRightOuterB = colCubeRightB + 25;
-
-  let cubeedgeHighlightcolRightInnerR = colCubeRightR - 25;
-  let cubeedgeHighlightcolRightInnerG = colCubeRightG - 25;
-  let cubeedgeHighlightcolRightInnerB = colCubeRightB - 25;
-
-  let cubeedgeHighlightcolLeftOuterR = colCubeLeftR + 25;
-  let cubeedgeHighlightcolLeftOuterG = colCubeLeftG + 25;
-  let cubeedgeHighlightcolLeftOuterB = colCubeLeftB + 25;
-
-  let cubeedgeHighlightcolLeftInnerR = colCubeLeftR - 25;
-  let cubeedgeHighlightcolLeftInnerG = colCubeLeftG - 25;
-  let cubeedgeHighlightcolLeftInnerB = colCubeLeftB - 25;
-
-  let colCubeTop = color(colCubeTopR, colCubeTopG, colCubeTopB);
-  let colCubeRight = color(colCubeRightR, colCubeRightG, colCubeRightB);
-  let colCubeLeft = color(colCubeLeftR, colCubeLeftG, colCubeLeftB);
-
-  let cubeedgeHighlightcolLeftInner = color(cubeedgeHighlightcolLeftInnerR, cubeedgeHighlightcolLeftInnerG, cubeedgeHighlightcolLeftInnerB);
-  let cubeedgeHighlightcolLeftOuter = color(cubeedgeHighlightcolLeftOuterR, cubeedgeHighlightcolLeftOuterG, cubeedgeHighlightcolLeftOuterB);
-  let cubeedgeHighlightcolRightInner = color(cubeedgeHighlightcolRightInnerR, cubeedgeHighlightcolRightInnerG, cubeedgeHighlightcolRightInnerB);
-  let cubeedgeHighlightcolRightOuter = color(cubeedgeHighlightcolRightOuterR, cubeedgeHighlightcolRightOuterG, cubeedgeHighlightcolRightOuterB);
+  let colCubeTopR = 217;
+  let colCubeTopG = 154;
+  let colCubeTopB = 159;
 
 // Sets Ground core colour
-  let colTopR = 200;
-  let colTopG = 200;
-  let colTopB = 200;
+  let colTopR = 217;
+  let colTopG = 154;
+  let colTopB = 159;
 
-  let colRightR = colTopR - 100;
-  let colRightG = colTopG - 100;
-  let colRightB = colTopB - 100;
+  let colRightR = colTopR - 25;
+  let colRightG = colTopG - 25;
+  let colRightB = colTopB - 25;
 
-  let colRightGradR = colRightR - 25;
-  let colRightGradG = colRightG - 25;
-  let colRightGradB = colRightB - 25;
+  let colLeftR = colTopR - 75;
+  let colLeftG = colTopG - 75;
+  let colLeftB = colTopB - 75;
 
-  let dotcolRightR = colRightR + 25;
-  let dotcolRightG = colRightG + 25;
-  let dotcolRightB = colRightB + 25;
-
-  let edgeHighlightcolRightInnerR = colRightR + 125;
-  let edgeHighlightcolRightInnerG = colRightG + 125;
-  let edgeHighlightcolRightInnerB = colRightB + 125;
-
-  let edgeHighlightcolRightOuterR = colRightR + 75;
-  let edgeHighlightcolRightOuterG = colRightG + 75;
-  let edgeHighlightcolRightOuterB = colRightB + 75;
-
-  let colLeftR = colTopR - 150;
-  let colLeftG = colTopG - 150;
-  let colLeftB = colTopB - 150;
-
-  let dotcolLeftR = colLeftR + 25;
-  let dotcolLeftG = colLeftG + 25;
-  let dotcolLeftB = colLeftB + 25;
+  let colRightGradR = colRightR - 37.5;
+  let colRightGradG = colRightG - 37.5;
+  let colRightGradB = colRightB - 37.5;
 
   let colLeftGradR = colLeftR - 37.5;
   let colLeftGradG = colLeftG - 37.5;
   let colLeftGradB = colLeftB - 37.5;
 
-  let edgeHighlightcolLeftInnerR = colLeftR + 150;
-  let edgeHighlightcolLeftInnerG = colLeftG + 150;
-  let edgeHighlightcolLeftInnerB = colLeftB + 150;
+  let dotcolRightR = colRightR + 25;
+  let dotcolRightG = colRightG + 25;
+  let dotcolRightB = colRightB + 25;
 
-  let edgeHighlightcolLeftOuterR = colLeftR + 125;
-  let edgeHighlightcolLeftOuterG = colLeftG + 125;
-  let edgeHighlightcolLeftOuterB = colLeftB + 125;
+  let dotcolLeftR = colLeftR + 25;
+  let dotcolLeftG = colLeftG + 25;
+  let dotcolLeftB = colLeftB + 25;
+
+  let edgeHighlightcolRightInnerR = colTopR + 12.5;
+  let edgeHighlightcolRightInnerG = colTopG + 12.5;
+  let edgeHighlightcolRightInnerB = colTopB + 12.5;
+
+  let edgeHighlightcolRightOuterR = colTopR - 12.5;
+  let edgeHighlightcolRightOuterG = colTopG - 12.5;
+  let edgeHighlightcolRightOuterB = colTopB - 12.5;
+
+  let edgeHighlightcolLeftInnerR = colTopR + 25;
+  let edgeHighlightcolLeftInnerG = colTopG + 25;
+  let edgeHighlightcolLeftInnerB = colTopB + 25;
+
+  let edgeHighlightcolLeftOuterR = colTopR - 25;
+  let edgeHighlightcolLeftOuterG = colTopG - 25;
+  let edgeHighlightcolLeftOuterB = colTopB - 25;
 
   let edgeHighlightcolCentreR = colRightR - 25;
   let edgeHighlightcolCentreG = colRightG - 25;
-  let edgeHighlightcolCentreB = colRightB - 25;;
+  let edgeHighlightcolCentreB = colRightB - 25;
 
   let colRight = color(colRightR, colRightG, colRightB);
   let colLeft = color(colLeftR,colLeftG,colLeftB);
@@ -123,7 +92,7 @@ function draw_one_frame(cur_frac) {
 
 
   // Grid Sizing
-  let gridGap = 1 * widthUnit;
+  let gridGap = .5 * widthUnit;
   let gridPadding = 1 * widthUnit;
   let gridHeight = -175 * widthUnit;
   let gridMarginTop = 50 * widthUnit;
@@ -136,7 +105,7 @@ function draw_one_frame(cur_frac) {
   let cubeSize = gridSize / cubeAmm;
   let cubeDepth = 100 * widthUnit;
 
-  let cubeMovementHeight = 150 * widthUnit;
+  let cubeMovementHeight = 125 * widthUnit;
 
   let edgeHighlightSize = 1 * widthUnit
 
@@ -146,11 +115,10 @@ function draw_one_frame(cur_frac) {
   let stairSize = 2 * widthUnit;
   let stairSideMargin = 150 * widthUnit;
   let stairAmm = 40;
-  let stairMargin = 10 * widthUnit;
+  let stairMargin = 25 * widthUnit;
   let stairRecessDepth = 150 * widthUnit;
 
   let dotSize = .5 * widthUnit;
-
 
   translate(width / 2, 0);
 
@@ -214,17 +182,16 @@ function draw_one_frame(cur_frac) {
   strokeWeight(edgeHighlightSize);
   strokeCap(ROUND);
 
-  stroke(edgeHighlightcolLeftInner);
+  stroke(edgeHighlightcolRightInner);
   line(0, cubeStartHeight + gridMarginTop - gridPadding, -width / 2 + 2 * gridMarginTop - 2 * gridPadding, height / 2);
 
-  stroke(edgeHighlightcolRightOuter);
+  stroke(edgeHighlightcolLeftOuter);
   line(0, cubeStartHeight + gridMarginTop - gridPadding, width / 2 - 2 * gridMarginTop + 2 * gridPadding, height / 2);
 
-  stroke(edgeHighlightcolLeftOuter);
-
+  stroke(edgeHighlightcolRightOuter);
   line(-width / 2 + 2 * gridMarginTop - 2 * gridPadding - gridBorderSize, height / 2, 0, cubeStartHeight + gridMarginTop - gridPadding - gridBorderSize / 2);
 
-  stroke(edgeHighlightcolRightInner);
+  stroke(edgeHighlightcolLeftInner);
 
   line(width / 2 - 2 * gridMarginTop + 2 * gridPadding + gridBorderSize, height / 2, 0, cubeStartHeight + gridMarginTop - gridPadding - gridBorderSize / 2);
 
@@ -247,6 +214,48 @@ function draw_one_frame(cur_frac) {
         sum = sum + brightness;
       }
       fill_col = int(sum / time_smoothness);
+      fillMult = map(fill_col,0, 255, -150, 100);
+
+      colCubeTopR = 217 + fillMult;
+      colCubeTopG = 154 + fillMult;
+      colCubeTopB = 159 + fillMult;
+
+      let colCubeRightR = colCubeTopR - 25;
+      let colCubeRightG = colCubeTopG - 25;
+      let colCubeRightB = colCubeTopB - 25;
+    
+      let colCubeLeftR = colCubeTopR - 50;
+      let colCubeLeftG = colCubeTopG - 50;
+      let colCubeLeftB = colCubeTopB - 50;
+
+      colCubeTop = color(colCubeTopR, colCubeTopG, colCubeTopB);
+      colCubeRight = color(colCubeRightR, colCubeRightG, colCubeRightB);
+      colCubeLeft = color(colCubeLeftR, colCubeLeftG, colCubeLeftB);
+
+      let cubeedgeHighlightcolRightInnerR = colCubeTopR + 5;
+      let cubeedgeHighlightcolRightInnerG = colCubeTopG + 5;
+      let cubeedgeHighlightcolRightInnerB = colCubeTopB + 5;
+    
+      let cubeedgeHighlightcolRightOuterR = colCubeTopR - 5;
+      let cubeedgeHighlightcolRightOuterG = colCubeTopG - 5;
+      let cubeedgeHighlightcolRightOuterB = colCubeTopB - 5;
+
+      let cubeedgeHighlightcolLeftInnerR = colCubeTopR + 12.5;
+      let cubeedgeHighlightcolLeftInnerG = colCubeTopG + 12.5;
+      let cubeedgeHighlightcolLeftInnerB = colCubeTopB + 12.5;
+    
+      let cubeedgeHighlightcolLeftOuterR = colCubeTopR - 25;
+      let cubeedgeHighlightcolLeftOuterG = colCubeTopG - 25;
+      let cubeedgeHighlightcolLeftOuterB = colCubeTopB - 25;
+    
+    
+     cubeedgeHighlightcolLeftInner = color(cubeedgeHighlightcolLeftInnerR, cubeedgeHighlightcolLeftInnerG, cubeedgeHighlightcolLeftInnerB);
+       cubeedgeHighlightcolLeftOuter = color(cubeedgeHighlightcolLeftOuterR, cubeedgeHighlightcolLeftOuterG, cubeedgeHighlightcolLeftOuterB);
+       cubeedgeHighlightcolRightInner = color(cubeedgeHighlightcolRightInnerR, cubeedgeHighlightcolRightInnerG, cubeedgeHighlightcolRightInnerB);
+       cubeedgeHighlightcolRightOuter = color(cubeedgeHighlightcolRightOuterR, cubeedgeHighlightcolRightOuterG, cubeedgeHighlightcolRightOuterB);
+
+
+
       let paraAmm = map(fill_col, 0, 255, 0, cubeMovementHeight);
       drawCube(cur_x, cubeStartHeight + cur_y - paraAmm - gridHeight);
     }
@@ -254,7 +263,7 @@ function draw_one_frame(cur_frac) {
 
   // Function for Cube
   function drawCube(x, y) {
-    fill(colCubeTopR + fill_col - 100, colCubeTopG + fill_col - 100, colCubeTopB + fill_col - 100);
+    fill(colCubeTop);
     beginShape()
     vertex(x, y)
     vertex(x - cubeSize + gridGap, y - cubeSize / 2 + gridGap / 2);
@@ -262,7 +271,7 @@ function draw_one_frame(cur_frac) {
     vertex(x + cubeSize - gridGap, y - cubeSize / 2 + gridGap / 2);
     endShape(CLOSE);
 
-    fill(colCubeRightR + fill_col - 100, colCubeRightG + fill_col - 100, colCubeRightB + fill_col - 100);
+    fill(colCubeRight);
 
     beginShape();
     vertex(x, y);
@@ -271,7 +280,7 @@ function draw_one_frame(cur_frac) {
     vertex(x, y + cubeDepth);
     endShape(CLOSE);
 
-    fill(colCubeLeftR + fill_col - 100, colCubeLeftG + fill_col - 100, colCubeLeftB + fill_col - 100);
+    fill(colCubeLeft);
 
     beginShape();
     vertex(x, y);
@@ -284,37 +293,36 @@ function draw_one_frame(cur_frac) {
     strokeCap(ROUND);
 
     // Bottom Right
-    stroke(cubeedgeHighlightcolRightOuterR + fill_col - 100, cubeedgeHighlightcolRightOuterG + fill_col - 100, cubeedgeHighlightcolRightOuterB + fill_col - 100)
+    stroke(cubeedgeHighlightcolRightInner)
     line(x + cubeSize - gridGap, y - cubeSize / 2 + gridGap / 2, x + cubeSize - gridGap, y + cubeDepth - cubeSize / 2 + gridGap / 2);
 
     // Bottom Left
-    stroke(cubeedgeHighlightcolLeftInnerR + fill_col - 100, cubeedgeHighlightcolLeftInnerG + fill_col - 100, cubeedgeHighlightcolLeftInnerB + fill_col - 100)
+    stroke(cubeedgeHighlightcolLeftOuter)
     line(x - cubeSize + gridGap, y - cubeSize / 2 + gridGap / 2, x - cubeSize + gridGap, y + cubeDepth - cubeSize / 2 + gridGap / 2);
 
     // Top left
-    stroke(cubeedgeHighlightcolLeftOuterR + fill_col - 100, cubeedgeHighlightcolLeftOuterG + fill_col - 100, cubeedgeHighlightcolLeftOuterB + fill_col - 100);
+    stroke(cubeedgeHighlightcolRightOuter);
     line(x, y - cubeSize + gridGap, x - cubeSize + gridGap, y - cubeSize / 2 + gridGap / 2);
 
     // Top Right
-    stroke(cubeedgeHighlightcolRightInnerR + fill_col - 100, cubeedgeHighlightcolRightInnerG + fill_col - 100, cubeedgeHighlightcolRightInnerB + fill_col - 100);
+    stroke(cubeedgeHighlightcolLeftInner);
     line(x, y - cubeSize + gridGap, x + cubeSize - gridGap, y - cubeSize / 2 + gridGap / 2);
 
     // Middle Right
-    stroke(cubeedgeHighlightcolRightOuterR + fill_col - 100, cubeedgeHighlightcolRightOuterG + fill_col - 100, cubeedgeHighlightcolRightOuterB + fill_col - 100);
+    stroke(cubeedgeHighlightcolRightInner);
     line(x, y, x + cubeSize - gridGap, y - cubeSize / 2 + gridGap / 2);
 
 
     // Middle Left
-    stroke(cubeedgeHighlightcolLeftOuterR + fill_col - 100, cubeedgeHighlightcolLeftOuterG + fill_col - 100, cubeedgeHighlightcolLeftOuterB + fill_col - 100);
+    stroke(cubeedgeHighlightcolLeftOuter);
     line(x, y, x - cubeSize + gridGap, y - cubeSize / 2 + gridGap / 2);
 
     // Middle Middle
-    stroke(cubeedgeHighlightcolRightOuterR + fill_col - 100, cubeedgeHighlightcolRightOuterG + fill_col - 100, cubeedgeHighlightcolRightOuterB + fill_col - 100);
+    stroke(cubeedgeHighlightcolLeftOuter);
     line(x, y, x, y + cubeDepth);
 
     noStroke();
   }
-
 
   // Stairs Recess Wall
   fill(colLeft);
@@ -415,17 +423,16 @@ function draw_one_frame(cur_frac) {
   // Bottom Ground Plane Highlights
   strokeWeight(edgeHighlightSize);
 
-  stroke(edgeHighlightcolRightInner);
+  stroke(edgeHighlightcolLeftInner);
   line(0, height - (cubeStartHeight) - gridMarginTop + gridPadding, -width / 2 + 2 * gridMarginTop - 2 * gridPadding, height / 2);
 
-  stroke(edgeHighlightcolLeftOuter);
+  stroke(edgeHighlightcolRightOuter);
   line(0, height - (cubeStartHeight) - gridMarginTop + gridPadding, width / 2 - 2 * gridMarginTop + 2 * gridPadding, height / 2);
 
-  stroke(edgeHighlightcolRightOuter);
-
+  stroke(edgeHighlightcolLeftOuter);
   line(2 * (cubeStartHeight + gridMarginTop - gridPadding) - gridBorderSize, height, -width / 2 + 2 * gridMarginTop - 2 * gridPadding - gridBorderSize, height / 2);
 
-  stroke(edgeHighlightcolRightInner);
+  stroke(edgeHighlightcolLeftInner);
 
   line(width / 2, height / 2 + gridMarginTop - 2 * gridPadding - gridBorderSize / 2, width / 2 - 2 * (gridMarginTop) + 2 * gridPadding + gridBorderSize, height / 2);
 
@@ -439,13 +446,13 @@ function draw_one_frame(cur_frac) {
   // Stair Recess Highlights
   strokeWeight(edgeHighlightSize);
 
-  stroke(edgeHighlightcolLeftOuter);
+  stroke(edgeHighlightcolRightOuter);
   line(stairSideMargin + stairRecessDepth, height - (cubeStartHeight) - gridMarginTop + gridPadding - stairSideMargin / 2 + stairRecessDepth / 2, width / 2 - 2 * gridMarginTop + 2 * gridPadding - stairSideMargin + stairRecessDepth, height / 2 + stairSideMargin / 2 + stairRecessDepth / 2);
 
-  stroke(edgeHighlightcolRightInner);
+  stroke(edgeHighlightcolLeftInner);
   line(stairSideMargin + stairSize + stairMargin, height - (cubeStartHeight) - gridMarginTop + gridPadding - stairSideMargin / 2 + stairSize / 2 + stairMargin / 2, stairSideMargin + stairRecessDepth, height - (cubeStartHeight) - gridMarginTop + gridPadding - stairSideMargin / 2 + stairRecessDepth / 2);
 
-  stroke(edgeHighlightcolRightOuter);
+  stroke(edgeHighlightcolLeftOuter);
   line(width / 2 - 2 * gridMarginTop + 2 * gridPadding - stairSideMargin + stairSize + stairMargin, height / 2 + stairSideMargin / 2 + stairSize / 2 + stairMargin / 2, width / 2 - 2 * gridMarginTop + 2 * gridPadding - stairSideMargin + stairRecessDepth, height / 2 + stairSideMargin / 2 + stairRecessDepth / 2);
 
   noStroke();

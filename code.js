@@ -3,7 +3,7 @@ let recording = false;
 
 
 function setup () {
-  createCanvas(1920,1920);
+  createCanvas(1080,1080);
   frameRate(60);
 }
 

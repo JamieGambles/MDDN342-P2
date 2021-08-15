@@ -1,14 +1,10 @@
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 
-    <script src="CCapture.js"></script>
-    <!-- Include WebM Writer if you want to export WebM -->
-    <script src="webm-writer-0.2.0.js"></script>
-    <!-- Include tar.js if you want to export PNG or JPEG -->
-    <script src="tar.js"></script>
-    <!-- Include download.js for easier file download -->
-    <script src="download.js"></script>
-    <script language="javascript" type="text/javascript" src="simplex-noise.js"></script>
+    <script src="CCapture.all.min.js"></script>
+    <script src="js/tar.js"></script>
+    <script src="js/download.js"></script>
+    <script language="javascript" type="text/javascript" src="js/simplex-noise.js"></script>
     <script language="javascript" type="text/javascript" src="draw_one_frame.js"></script>
     <script language="javascript" type="text/javascript" src="code.js"></script>
 </head>
@@ -19,8 +15,6 @@
         // Create a capturer that exports a WebM video
         var capturer = new CCapture({
             format: 'png',
-            motionBlurFrames: 1,
-            name: 'frames',
             timeLimit: 1,
             framerate: 60,
             verbose: true
