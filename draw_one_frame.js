@@ -1,7 +1,7 @@
 function draw_one_frame(cur_frac) {
 
   angleMode(DEGREES);
-  background(217, 154, 159);
+
   noStroke();
 
   // Colour Parameters
@@ -9,16 +9,22 @@ function draw_one_frame(cur_frac) {
   let fill_col;
   let fillMult;
 
+  let mainColourR = 128;
+  let mainColourG = 155;
+  let mainColourB = 194;
+
+  background(mainColourR, mainColourG, mainColourB);
+
 
   // Sets Cube core colour
-  let colCubeTopR = 217;
-  let colCubeTopG = 154;
-  let colCubeTopB = 159;
+  let colCubeTopR = mainColourR;
+  let colCubeTopG = mainColourG;
+  let colCubeTopB = mainColourB;
 
 // Sets Ground core colour
-  let colTopR = 217;
-  let colTopG = 154;
-  let colTopB = 159;
+  let colTopR = mainColourR;
+  let colTopG = mainColourG;
+  let colTopB = mainColourB;
 
   let colRightR = colTopR - 25;
   let colRightG = colTopG - 25;
@@ -216,9 +222,9 @@ function draw_one_frame(cur_frac) {
       fill_col = int(sum / time_smoothness);
       fillMult = map(fill_col,0, 255, -150, 100);
 
-      colCubeTopR = 217 + fillMult;
-      colCubeTopG = 154 + fillMult;
-      colCubeTopB = 159 + fillMult;
+      colCubeTopR = mainColourR + fillMult;
+      colCubeTopG = mainColourG + fillMult;
+      colCubeTopB = mainColourB + fillMult;
 
       let colCubeRightR = colCubeTopR - 25;
       let colCubeRightG = colCubeTopG - 25;
