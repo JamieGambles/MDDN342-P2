@@ -7,12 +7,12 @@ function setup () {
   frameRate(60);
 }
 
-function keyPressed() {
-  if (keyCode === 82) {
-    recording = true;
-    capturer.start();
-  }
-}
+// function keyPressed() {
+//   if (keyCode === 82) {
+//     recording = true;
+//     capturer.start();
+//   }
+// }
 
 function draw () {
   let cur_frame = frameCount % frameMax;
